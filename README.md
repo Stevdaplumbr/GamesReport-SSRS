@@ -40,4 +40,5 @@ SELECT TOP 5
     CoverImagePath
 FROM Games
 WHERE Platforms LIKE '%Xbox%'
+And CoverImagePath IS NOT NULL
 ORDER BY ReleaseYear;
