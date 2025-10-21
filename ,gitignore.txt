@@ -1,0 +1,10 @@
+# Ignore build and temp files
+bin/
+obj/
+*.rdl.data
+*.rdl.backup
+*.rdl.rdl.data
+*.pdb
+*.cache
+*.user
+*.suo

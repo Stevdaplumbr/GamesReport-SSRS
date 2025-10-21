@@ -1,0 +1,545 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report MustUnderstand="df" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily" xmlns:am="http://schemas.microsoft.com/sqlserver/reporting/authoringmetadata">
+  <am:AuthoringMetadata>
+    <am:CreatedBy>
+      <am:Name>SSDTRS</am:Name>
+      <am:Version>17.9.34723.18</am:Version>
+    </am:CreatedBy>
+    <am:UpdatedBy>
+      <am:Name>SSDTRS</am:Name>
+      <am:Version>17.9.34723.18</am:Version>
+    </am:UpdatedBy>
+    <am:LastModifiedTimestamp>2025-10-21T15:59:49.4635676Z</am:LastModifiedTimestamp>
+  </am:AuthoringMetadata>
+  <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="GamesDB">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString>Data Source=localhost;Initial Catalog=VideoGamesDB</ConnectString>
+        <IntegratedSecurity>true</IntegratedSecurity>
+      </ConnectionProperties>
+      <rd:SecurityType>Integrated</rd:SecurityType>
+      <rd:DataSourceID>5e1a1f29-2a03-4765-b6aa-757a7e51a4f0</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet1">
+      <Query>
+        <DataSourceName>GamesDB</DataSourceName>
+        <CommandText>SELECT TOP 5 Title, CoverImagePath, ReleaseYear, Developer, Platforms 
+FROM Games 
+WHERE Platforms LIKE '%Xbox%'</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="Title">
+          <DataField>Title</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CoverImagePath">
+          <DataField>CoverImagePath</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ReleaseYear">
+          <DataField>ReleaseYear</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Developer">
+          <DataField>Developer</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Platforms">
+          <DataField>Platforms</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="DataSet2">
+      <Query>
+        <DataSourceName>GamesDB</DataSourceName>
+        <CommandText>SELECT Title, CoverImagePath,ReleaseYear,Developer,platforms
+
+FROM Games
+
+WHERE Platforms
+ LIKE '%Xbox%'
+
+ORDER BY Title
+OFFSET 5 ROWS FETCH NEXT 5 ROWS ONLY;</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Title">
+          <DataField>Title</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CoverImagePath">
+          <DataField>CoverImagePath</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ReleaseYear">
+          <DataField>ReleaseYear</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Developer">
+          <DataField>Developer</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="platforms">
+          <DataField>platforms</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="DataSet3">
+      <Query>
+        <DataSourceName>GamesDB</DataSourceName>
+        <CommandText>SELECT Title, CoverImagePath, ReleaseYear,Developer,Platforms
+
+FROM Games
+
+WHERE Platforms
+ LIKE '%Xbox%'
+
+ORDER BY Title
+
+OFFSET 10 ROWS FETCH NEXT 5 ROWS ONLY;</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Title">
+          <DataField>Title</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CoverImagePath">
+          <DataField>CoverImagePath</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ReleaseYear">
+          <DataField>ReleaseYear</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Developer">
+          <DataField>Developer</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Platforms">
+          <DataField>Platforms</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Tablix Name="Tablix3">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>4.35212in</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>3.32951in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Rectangle Name="Rectangle2">
+                          <ReportItems>
+                            <Image Name="Image17">
+                              <Source>External</Source>
+                              <Value>="file:///" &amp; Fields!CoverImagePath.Value
+</Value>
+                              <Sizing>FitProportional</Sizing>
+                              <Top>0.69444in</Top>
+                              <Height>1.87722in</Height>
+                              <Width>2.40278in</Width>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                              </Style>
+                            </Image>
+                            <Textbox Name="ReleaseYear7">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!ReleaseYear.Value</Value>
+                                      <Style>
+                                        <FontFamily>Bahnschrift SemiBold</FontFamily>
+                                        <FontSize>20pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>ReleaseYear1</rd:DefaultName>
+                              <Top>2.58555in</Top>
+                              <Left>1.6192in</Left>
+                              <Height>0.25in</Height>
+                              <Width>2.33154in</Width>
+                              <ZIndex>1</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <TopBorder>
+                                  <Style>None</Style>
+                                </TopBorder>
+                                <BottomBorder>
+                                  <Style>Solid</Style>
+                                  <Width>3pt</Width>
+                                </BottomBorder>
+                                <LeftBorder>
+                                  <Style>None</Style>
+                                  <Width>3pt</Width>
+                                </LeftBorder>
+                                <RightBorder>
+                                  <Style>Solid</Style>
+                                  <Width>3pt</Width>
+                                </RightBorder>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                          </ReportItems>
+                          <KeepTogether>true</KeepTogether>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                          </Style>
+                        </Rectangle>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <Group Name="Details" />
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <DataSetName>DataSet1</DataSetName>
+            <Top>1.17583in</Top>
+            <Left>0.49306in</Left>
+            <Height>3.32951in</Height>
+            <Width>4.35212in</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Tablix>
+          <Textbox Name="Textbox1">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>      Games Released By Year</Value>
+                    <Style>
+                      <FontFamily>Bahnschrift</FontFamily>
+                      <FontSize>35pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox1</rd:DefaultName>
+            <Top>0.34944in</Top>
+            <Height>0.61806in</Height>
+            <Width>11.95361in</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Tablix Name="Tablix4">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>4.35212in</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>3.32951in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Rectangle Name="Rectangle3">
+                          <ReportItems>
+                            <Image Name="Image18">
+                              <Source>External</Source>
+                              <Value>="file:///" &amp; Fields!CoverImagePath.Value</Value>
+                              <Sizing>FitProportional</Sizing>
+                              <Top>0.69444in</Top>
+                              <Height>1.87722in</Height>
+                              <Width>2.40278in</Width>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                              </Style>
+                            </Image>
+                            <Textbox Name="ReleaseYear8">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!ReleaseYear.Value</Value>
+                                      <Style>
+                                        <FontFamily>Bahnschrift SemiBold</FontFamily>
+                                        <FontSize>20pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>ReleaseYear1</rd:DefaultName>
+                              <Top>2.58555in</Top>
+                              <Left>1.67017in</Left>
+                              <Height>0.25in</Height>
+                              <Width>2.28057in</Width>
+                              <ZIndex>1</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <TopBorder>
+                                  <Style>None</Style>
+                                </TopBorder>
+                                <BottomBorder>
+                                  <Style>Solid</Style>
+                                  <Width>3pt</Width>
+                                </BottomBorder>
+                                <LeftBorder>
+                                  <Style>None</Style>
+                                  <Width>3pt</Width>
+                                </LeftBorder>
+                                <RightBorder>
+                                  <Style>Solid</Style>
+                                  <Width>3pt</Width>
+                                </RightBorder>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                          </ReportItems>
+                          <KeepTogether>true</KeepTogether>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                          </Style>
+                        </Rectangle>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <Group Name="Details2" />
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <DataSetName>DataSet2</DataSetName>
+            <Top>1.19954in</Top>
+            <Left>5.4188in</Left>
+            <Height>3.32951in</Height>
+            <Width>4.35212in</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Tablix>
+          <Tablix Name="Tablix5">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>4.35212in</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>3.32951in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Rectangle Name="Rectangle4">
+                          <ReportItems>
+                            <Image Name="Image19">
+                              <Source>External</Source>
+                              <Value>="file:///" &amp; Fields!CoverImagePath.Value</Value>
+                              <Sizing>FitProportional</Sizing>
+                              <Top>0.69444in</Top>
+                              <Height>1.87722in</Height>
+                              <Width>2.40278in</Width>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                              </Style>
+                            </Image>
+                            <Textbox Name="ReleaseYear9">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!ReleaseYear.Value</Value>
+                                      <Style>
+                                        <FontFamily>Bahnschrift SemiBold</FontFamily>
+                                        <FontSize>20pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>ReleaseYear1</rd:DefaultName>
+                              <Top>2.58555in</Top>
+                              <Left>1.67017in</Left>
+                              <Height>0.25in</Height>
+                              <Width>2.28057in</Width>
+                              <ZIndex>1</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <TopBorder>
+                                  <Style>None</Style>
+                                </TopBorder>
+                                <BottomBorder>
+                                  <Style>Solid</Style>
+                                  <Width>3pt</Width>
+                                </BottomBorder>
+                                <LeftBorder>
+                                  <Style>None</Style>
+                                  <Width>3pt</Width>
+                                </LeftBorder>
+                                <RightBorder>
+                                  <Style>Solid</Style>
+                                  <Width>3pt</Width>
+                                </RightBorder>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                          </ReportItems>
+                          <KeepTogether>true</KeepTogether>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                          </Style>
+                        </Rectangle>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <Group Name="Details3" />
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <DataSetName>DataSet3</DataSetName>
+            <Top>1.19954in</Top>
+            <Left>10.20983in</Left>
+            <Height>3.32951in</Height>
+            <Width>4.35212in</Width>
+            <ZIndex>3</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Tablix>
+        </ReportItems>
+        <Height>7.11747in</Height>
+        <Style>
+          <BackgroundImage>
+            <Source>External</Source>
+            <Value>file:///C:\GameCovers\xboxstore.png
+</Value>
+            <MIMEType>image/png</MIMEType>
+          </BackgroundImage>
+        </Style>
+      </Body>
+      <Width>15.18973in</Width>
+      <Page>
+        <LeftMargin>1in</LeftMargin>
+        <RightMargin>1in</RightMargin>
+        <TopMargin>1in</TopMargin>
+        <BottomMargin>1in</BottomMargin>
+        <Columns>3</Columns>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
+  <Language>en-US</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>46fb6062-8d8b-4a6e-9942-1ffb3e029f8f</rd:ReportID>
+</Report>
