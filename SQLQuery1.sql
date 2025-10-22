@@ -30,7 +30,15 @@ OFFSET 10 ROWS FETCH NEXT 5 ROWS ONLY;
 
 
 
-
+SELECT TOP 5 
+    Title,
+    Developer,
+    Platforms,
+    ReleaseYear,
+    CoverImagePath
+FROM Games
+WHERE Platforms LIKE '%Xbox%'
+ORDER BY ReleaseYear;
 
 
 
@@ -126,3 +134,6 @@ WHERE Platforms LIKE '%Xbox%'
 ORDER BY Title
 OFFSET 10 ROWS
 FETCH NEXT 5 ROWS ONLY; 
+
+Select *
+From Games;
