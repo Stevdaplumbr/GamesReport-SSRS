@@ -41,7 +41,7 @@ Here’s what the report looks like in SSRS:
 
 ---
 
-## 📚 Example SQL Query I used to show off the first 5 games
+## 📚 SQL Query I used fro the first DataSet in The Report 
 ```sql
 SELECT TOP 5 Title, CoverImagePath, ReleaseYear, Developer, Platforms 
 FROM Games 
