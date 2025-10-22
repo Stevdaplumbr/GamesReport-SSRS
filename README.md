@@ -41,16 +41,8 @@ Here’s what the report looks like in SSRS:
 
 ---
 
-## 📚 Example SQL Query
+## 📚 Example SQL Query I used to show off the first 5 games
 ```sql
-SELECT TOP 5 
-    Title,
-    Developer,
-    Platforms,
-    ReleaseYear,
-    CoverImagePath
-FROM Games
+SELECT TOP 5 Title, CoverImagePath, ReleaseYear, Developer, Platforms 
+FROM Games 
 WHERE Platforms LIKE '%Xbox%'
-And CoverImagePath IS NOT NULL
-ORDER BY ReleaseYear;
-
