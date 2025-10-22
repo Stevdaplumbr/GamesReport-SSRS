@@ -22,6 +22,17 @@ It features an **Xbox-inspired design** with dynamic cover art, green gradients,
 
 ---
 
+## ⚙️ Database Setup
+If you want to run it yourself, I have the database included here are some steps that can help
+
+1. Open `data.sql` in **SQL Server Management Studio (SSMS)**.  
+2. Run the script to create and populate the `Games` table.  
+3. Open the `Games Released By Year.rdl` file in **Visual Studio** (with the SSRS extension) or **Report Builder**.  
+4. Update the data source connection string to point to your local SQL Server instance.  
+5. Click **Preview** to view the Xbox-themed report with sample data.
+
+
+
 ## 🖼️ Preview
 Here’s what the report looks like in SSRS:
 
@@ -42,3 +53,4 @@ FROM Games
 WHERE Platforms LIKE '%Xbox%'
 And CoverImagePath IS NOT NULL
 ORDER BY ReleaseYear;
+
